@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  nav
+    a.go-back(href='/') < Volver
+
+    span.page-title
+      | Ejemplo: <strong>#{title}</strong>
+
+  .content
+    block example-content
+
+  .credits
+    block credits

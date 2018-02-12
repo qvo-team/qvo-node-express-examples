@@ -1,0 +1,53 @@
+.index-content
+  background-color: $primary
+  color: $light
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  align-items: center
+  position: relative
+  overflow: hidden
+
+  h1.background-title
+    margin: 0
+    position: absolute
+    bottom: -6rem
+    left: -2rem
+    font-size: 16rem
+    white-space: nowrap
+    overflow: hidden
+    color: $dark
+
+
+  .example-selector
+    z-index: 2
+    width: 100%
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+    .example-option
+      text-align: center
+      color: $dark
+      background: $light
+      border-radius: 6px
+      padding: 1rem
+      width: 100%
+      max-width: 260px
+
+      .title
+        font-family: 'Lato', sans-serif !important
+        margin-top: 0
+        margin-bottom: 1rem
+
+      .lead
+        font-size: .9rem
+        margin-bottom: 1rem
+
+    @media screen and (max-width: $break-sm)
+      flex-direction: column
+
+      .example-option + .example-option
+        margin-top: 1rem
+

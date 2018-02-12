@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono')
+
+code[class*="language-"],
+pre[class*="language-"]
+  color: $dark
+  margin-bottom: 0
+  background: none
+  border: none
+  font-family: 'Fira Mono', monospace !important
+  font-size: 13px
+  text-align: left
+  white-space: pre
+  word-spacing: normal
+  word-break: normal
+  word-wrap: normal
+  line-height: 1.5
+
+  -moz-tab-size: 4
+  -o-tab-size: 4
+  tab-size: 4
+
+  -webkit-hyphens: none
+  -moz-hyphens: none
+  -ms-hyphens: none
+  hyphens: none
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection
+  text-shadow: none
+  background: #b3d4fc
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection
+  text-shadow: none
+  background: #b3d4fc
+
+@media print
+  code[class*="language-"],
+  pre[class*="language-"]
+    text-shadow: none
+
+
+/* Code blocks */
+pre[class*="language-"]
+  padding: 1em
+  overflow: auto
+
+/* Inline code */
+:not(pre) > code[class*="language-"]
+  padding: .1em
+  border-radius: .3em
+  white-space: normal
+
+pre.line-numbers
+  position: relative
+  padding-left: 3.8em
+  counter-reset: linenumber
+
+pre.line-numbers > code
+  position: relative
+
+.line-numbers .line-numbers-rows
+  position: absolute
+  pointer-events: none
+  top: -1px
+  font-size: 100%
+  left: -3.8em
+  width: 3em /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px
+  // border-right: 1px solid #999
+  // color: #91a2b0
+
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+
+.line-numbers-rows > span
+  pointer-events: none
+  display: block
+  counter-increment: linenumber
+
+.line-numbers-rows > span:before
+  content: counter(linenumber)
+  color: #999
+  display: block
+  padding-right: 0.8em
+  text-align: right
+
+
+pre .highlighted-line
+  background: hsla(0,0%,100%,.8)
+
+code .token
+  padding: 0
+  margin: 0
+
+code .token:not(.script)
+  font-weight: 400
+
+code .token.property
+  font-weight: 500
+
+.language-php .token.operator,code .token.atrule,code .token.keyword
+  color: #6772e5
+
+code.language-markup .token.namespace,code .token.attr-name,code .token.selector,code .token.tag,code .token.tag *
+  color: #0075d6
+
+.language-php .token.operator,code .token.atrule,code .token.keyword,code .token.tag
+  font-weight: 600
+
+code .token.attr-name
+  font-style: italic
+
+code .token.comment
+  font-weight: 400
+  color: #91a2b0
+
+code.language-url,code .token.function,code .token.url
+  font-weight: 600
+  color: #3297d3
+
+.language-ruby .token.constant+.token.punctuation,.language-ruby .token.constant+.token.punctuation+.token.symbol,code .token.boolean,code .token.builtin,code .token.class-name,code .token.constant,code .token.namespace
+  font-weight: 600
+  color: #2191ef
+
+code .token.number
+  color: #fa755a
+
+code .token.header
+  font-weight: 700
+
+.language-bash .token.function,code .token.curl,code .token.option,code .token.variable
+  color: teal
+  font-weight: 600
+
+.language-bash .token.function,code .token.curl,code .token.option
+  font-weight: 500
+
+.language-bash .token.option,code.language-css .property,code .token.parameter,code .token.symbol
+  font-weight: 500
+  color: #d14
+
+code.language-html .token.attr-value>.punctuation:not(:first-child),code.language-markup .token.attr-value>.punctuation:not(:first-child),code .token.attr-value,code .token.macro,code .token.string,code .token.stripe,code .token.value
+  font-weight: 400
+  color: #159570
+
+code .token.macro .keyword
+  color: #064508
+
+code .token.publishable-key,code .token.secret-key
+  background: #eceff1
+  border-radius: 3px
+  padding: 2px
+  margin: -2px
+
+code .token.publishable-key.enabled,code .token.secret-key.enabled
+  background: #dfe3e6
+
+pre
+  position: relative
+  color: #424770
+
+pre .line-numbers
+  position: absolute
+  pointer-events: none
+  top: 11px
+  left: 29px
+  width: 16px
+  counter-reset: a
+  line-height: 19px
+
+pre .line-numbers>span
+  pointer-events: none
+  display: block
+  counter-increment: a
+
+pre .line-numbers>span:before
+  content: counter(a)
+  color: #bec5ca
+  display: block
+  font-size: 13px
+  text-align: right
+  user-select: none
+
+pre .line-numbers>span.highlighted:before
+  color: #858c90
+  font-weight: 500
+
+pre.language-bash .line-numbers>span:before,pre.language-curl .line-numbers>span:before
+  content: '>'
+
+pre.language-bash .line-numbers>span:first-child:before,pre.language-curl .line-numbers>span:first-child:before
+  content: '$'

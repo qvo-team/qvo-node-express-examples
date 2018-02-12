@@ -1,0 +1,59 @@
+.product-display
+  margin-top: 6rem
+  display: flex
+  align-items: center
+  padding: 2rem
+
+  .product-img
+    margin-right: 2rem
+    padding: 1rem
+    border: 1px solid $gray
+    border-radius: 6px
+
+    img
+      width: auto
+      height: 280px
+
+  .product-name
+    font-size: 2rem
+    margin: 0
+
+  .product-rating
+    color: $yellow
+    font-size: 1.2rem
+
+  .product-price
+    margin: 1.4rem 0
+    font-size: 2rem
+    font-weight: 300
+    position: relative
+
+    &.offer:after
+        content: "Oferta!"
+        position: absolute
+        top: -6px
+        left: 112px
+        font-size: .7rem
+        font-weight: 700
+        color: $light
+        background: $red
+        padding: .2rem
+        border-radius: 2px
+
+  .btn-primary
+    margin-top: 1.4rem
+    padding: .2rem 2rem
+    cursor: pointer
+
+  @media screen and (max-width: $break-sm)
+    flex-direction: column
+    margin-top: 1rem
+
+    .product-img
+      margin-right: 0
+      margin-bottom: 2rem
+
+pre
+  background: #f6f8fa
+  border-radius: 6px
+  padding: 1rem

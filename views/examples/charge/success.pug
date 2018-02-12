@@ -1,0 +1,31 @@
+extends ../layout
+
+block example-content
+  h1 Éxito! 🤓
+
+  p
+    | Tu transacción se ha realizado sin problemas. Estamos procesando tu orden. Gracias por confiar en nosotros 🙂.
+
+  h3 Detalles de la transacción
+
+  ul
+    li ID de la transacción: #{ transaction.id }
+    li Fecha de la transacción: #{ new Date(transaction.created_at).toLocaleString() }
+    li Monto: $#{ transaction.payment.amount }
+    li Descripción: #{ transaction.description }
+    li Tipo de pago: #{ transaction.payment.payment_type == 'credit' ? 'Crédito': 'Débito' }
+    li Número de Cuotas: #{ transaction.payment.installments }
+
+  a.btn-primary(href="/")
+    | Volver al Inicio
+
+  a.btn-primary(href="/examples/charge")
+    | Volver al Ejemplo
+
+  hr
+
+  p
+    | Respuesta de la API:
+  pre
+    code.language-javascript
+      | !{ Prism.highlight(JSON.stringify(transaction, null, 2), Prism.languages.javascript) }

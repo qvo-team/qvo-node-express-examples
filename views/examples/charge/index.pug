@@ -1,0 +1,24 @@
+extends ../layout
+
+block example-content
+  .product-display
+    .product-img
+      img(src=product.imgURL)
+    .product-information
+      h2.product-name
+        = product.name
+      .product-rating
+        - for (var i = 0; i < product.rating; i++)
+          | ★
+      .product-price(class=product.offer ? 'offer' : '')
+        = '$' + product.price
+      p.product-description
+        = product.description
+
+      form(method='POST' action='/examples/charge/pay')
+        input(type='hidden' name='productID' value=product.id)
+        button.btn-primary(type='submit') Pagar $#{product.price}
+
+block credits
+  span
+   | Icons made by <a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

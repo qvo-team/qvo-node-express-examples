@@ -1,0 +1,19 @@
+extends ../layout
+
+block example-content
+  h1 Fracaso! 😞
+
+  p
+     | Tu transacción no ha podido llevarse a cabo. Revisa tus datos de tarjeta e intenta nuevamente.
+
+
+  a.btn-primary(href="/examples/charge")
+    | Volver a intentar
+
+  hr
+
+  p
+    | Respuesta de la API:
+  pre
+    code.language-javascript
+      | !{ Prism.highlight(JSON.stringify(transaction, null, 2), Prism.languages.javascript) }
