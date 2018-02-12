@@ -23,21 +23,21 @@ router.post('/register_transaction/:transactionID', (req, res, next) => {
       Authorization: `Bearer ${process.env.QVO_API_KEY}`
     }
   })
-    .then(response => {
-      console.info("QVO API Response:", response);
+  .then(response => {
+    console.info("QVO API Response:", response);
 
-      // Here you can insert your own logic to check and store the transaction, update accounting, order status or whatever.
+    // Here you can insert your own logic to check and store the transaction, update accounting, order status or whatever.
 
-      // Simple check example
-      if (response.status == "successful") {
-        res.send({ status: 'ok' });
-      } else {
-        res.send({ status: "fail" });
-      }
-    })
-    .catch(response => {
-      console.error(response);
-    });
+    // Simple check example
+    if (response.status == "successful") {
+      res.send({ status: 'ok' });
+    } else {
+      res.send({ status: "fail" });
+    }
+  })
+  .catch(response => {
+    console.error(response);
+  });
 });
 
 module.exports = router;

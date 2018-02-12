@@ -4,18 +4,18 @@
     "name": "Bronce",
     "price": 1,
     "currency": "UF",
-    "qvo_plan_id": "bronce"
+    "qvoPlanID": "bronce"
   }, {
     "id": 2,
     "name": "Plata",
     "price": 2.45,
     "currency": "UF",
-    "qvo_plan_id": "plata"
+    "qvoPlanID": "plata"
   }, {
     "id": 3,
     "name": "Oro",
     "price": 5.9,
     "currency": "UF",
-    "qvo_plan_id": "oro"
+    "qvoPlanID": "oro"
   }
 ]

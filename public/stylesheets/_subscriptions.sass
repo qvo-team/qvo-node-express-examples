@@ -51,8 +51,40 @@
 
   @media screen and (max-width: $break-sm)
     flex-direction: column
-    align-items: center
 
     .plan + .plan
       margin-left: 0
       margin-top: 1rem
+
+
+.form-group
+  + .form-group
+    margin-top: 1rem
+
+  label
+    width: 20%
+    float: left
+    font-weight: 700
+
+  .form-control
+    input
+      width: 100%
+      max-width: 300px
+      border: 1px $gray solid
+      padding: .6rem 1rem
+      border-radius: 6px
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+      &:focus
+        color: $dark;
+        background-color: $light;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+
+  @media screen and (max-width: $break-sm)
+    label
+      width: 100%
+      float: none
+
+    .form-control input
+      margin-top: .5rem

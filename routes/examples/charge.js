@@ -32,14 +32,14 @@ router.post("/pay", (req, res, next) => {
       description: `Orden Cód. ${generateOrder()} - ${product.name}`
     }
   })
-    .then(response => {
-      console.info("QVO API Response:", response);
+  .then(response => {
+    console.info("QVO API Response:", response);
 
-      res.redirect(response.redirect_url);
-    })
-    .catch(response => {
-      console.error(response);
-    });
+    res.redirect(response.redirect_url);
+  })
+  .catch(response => {
+    console.error(response);
+  });
 });
 
 // GET /examples/charge/return
@@ -51,24 +51,24 @@ router.get('/return', (req, res, next) => {
       Authorization: `Bearer ${process.env.QVO_API_KEY}`
     }
   })
-    .then(response => {
-      console.info("QVO API Response:", response);
+  .then(response => {
+    console.info("QVO API Response:", response);
 
-      if(response.status == 'successful') {
-        res.render("examples/charge/success", {
-          title: "Éxito - Cobrar a tarjeta",
-          transaction: response
-        });
-      } else {
-        res.render("examples/charge/failure", {
-          title: "Fracaso - Cobrar a tarjeta",
-          transaction: response
-        });
-      }
-    })
-    .catch(response => {
-      console.error(response);
-    });
+    if(response.status == 'successful') {
+      res.render("examples/charge/success", {
+        title: "Éxito - Cobrar a tarjeta",
+        transaction: response
+      });
+    } else {
+      res.render("examples/charge/failure", {
+        title: "Fracaso - Cobrar a tarjeta",
+        transaction: response
+      });
+    }
+  })
+  .catch(response => {
+    console.error(response);
+  });
 });
 
 function generateOrder() {

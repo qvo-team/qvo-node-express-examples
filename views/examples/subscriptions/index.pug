@@ -2,19 +2,34 @@ extends ../layout
 
 block example-content
 
-  h1 Ingresa tus datos
+  form(method='POST' action='/examples/subscriptions/init_card_inscription')
+    h1 1. Ingresa tus datos:
 
-  p form here
+    .form-group
+      label.desc Nombre:
+      .form-control
+        input(name='name' type='text' value='' placeholder='Ingresa tu nombre' required)
 
-  h1 Elige tu plan
-  .plans
-    each plan in plans
-      .plan
-        .plan-content
-          h1.plan-price
-            | <span class="currency">#{plan.currency}</span> #{plan.price}<span class="interval">/mes</span>
-          p.plan-name= plan.name
+    .form-group
+      label.desc Email:
+      .form-control
+        input(name='email' type='email' value='' placeholder='Ingresa tu email' required)
 
-        form(method='POST' action='/examples/subscriptions/pay')
-          input(type='hidden' name='plan.id' value=plan.id)
-          button.btn.btn-primary(type='submit') Inscribirse
+    .form-group
+      label.desc Teléfono:
+      .form-control
+        input(name='phone' type='tel' value='' placeholder='Ingresa tu teléfono (Opcional)' required)
+
+    h1 2. Elige tu plan:
+
+    .plans
+      each plan in plans
+        .plan
+          .plan-content
+            h1.plan-price
+              | <span class='currency'>#{plan.currency}</span> #{plan.price}<span class='interval'>/mes</span>
+            p.plan-name
+              = plan.name
+
+          button.btn.btn-primary(name='planID' type='submit' value=plan.id)
+            | Inscribirse

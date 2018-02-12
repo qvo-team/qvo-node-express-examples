@@ -1,0 +1,46 @@
+extends ../layout
+
+block example-content
+  h1 Éxito! 🤓
+
+  p
+    | Felicitaciones #{ subscription.customer.name }, estás suscrito a #{ subscription.plan.name } 🙂.
+
+  h2 Detalles del plan
+
+  strong Plan:
+  p= subscription.plan.name
+  strong Precio:
+  p #{ subscription.plan.currency }#{ subscription.plan.price }/mes
+
+  h2 Detalles de la transacción
+
+  strong Monto:
+  p= subscription.transactions[0].amount
+  strong Moneda:
+  p= subscription.transactions[0].currency
+  strong Fecha:
+  p= subscription.transactions[0].currency
+  strong Descripción:
+  p= subscription.transactions[0].description
+  strong Tipo de pago:
+  p Crédito
+  strong Número de cuotas:
+  p 0
+  strong Tarjeta utilizada:
+  p #{ card.card_type.toUpperCase() } ···· #{ card.last_4_digits }
+
+
+  a.btn.btn-primary(href="/")
+    | Volver al Inicio
+
+  a.btn.btn-primary(href="/examples/subscriptions")
+    | Volver al Ejemplo
+
+  hr
+
+  p
+    | Respuesta de la API:
+  pre
+    code.language-javascript
+      | !{ Prism.highlight(JSON.stringify(subscription, null, 2), Prism.languages.javascript) }
