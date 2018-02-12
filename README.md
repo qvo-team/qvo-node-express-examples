@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://qvo.cl">
-    <img src="https://cdn.rawgit.com/qvo-team/qvo-node-express-examples/master/sticker.png" alt="QVO Developers" width="400">
+    <img src="https://cdn.rawgit.com/qvo-team/qvo-node-express-examples/master/sticker.png" alt="QVO Developers" width="200">
   </a>
   <br>
   Ejemplos QVO Node.js (Express)
@@ -9,7 +9,7 @@
 </h1>
 
 
-Este repositorio contiene una APP en Express con ejemlos de funcionalidades de la [API QVO](https://docs.qvo.cl).
+Este repositorio contiene una APP en Express con ejemplos de funcionalidades de la [API QVO](https://docs.qvo.cl).
 
 ## Requisitos
 
