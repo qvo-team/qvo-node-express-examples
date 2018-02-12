@@ -3,12 +3,14 @@ const express = require("express"),
   url = require("url"),
   fetch = require("node-fetch-json"),
   Prism = require("prismjs"),
+  plans = require("../../stubs/plans.json");
   QVO_API_URL = "https://playground.qvo.cl"; //Change it to https://api.qvo.cl on production
 
 // GET /examples/subscriptions
 router.get("/", (req, res, next) => {
   res.render("examples/subscriptions/index", {
-    title: "Botón de pago y subscriptions"
+    title: "Planes y suscripciones",
+    plans: plans
   });
 });
 

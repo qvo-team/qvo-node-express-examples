@@ -22,19 +22,46 @@ hr
   border-bottom: 1px solid $gray
   margin: 1rem 0
 
-.btn-primary
-  text-decoration: none
-  color: $light
-  border: none
-  background: $primary
-  border-radius: 6px
-  font-weight: 700
-  padding: .6rem 1.4rem
-  font-size: 1rem
-  line-height: 2.4rem
+button
+  &.btn
+    text-decoration: none
+    border: none
+    border-radius: 6px
+    font-weight: 700
+    padding: .2rem 1.4rem
+    font-size: 1rem
+    line-height: 2.4rem
 
-  + .btn-primary
-    margin-left: 1rem
+    + .btn
+      margin-left: 1rem
+
+a
+  &.btn
+    text-decoration: none
+    border: none
+    border-radius: 6px
+    font-weight: 700
+    padding: .6rem 1.4rem
+    font-size: 1rem
+    line-height: 2.4rem
+
+    + .btn
+      margin-left: 1rem
+
+.btn
+  &.btn-primary
+    color: $light
+    background: $primary
+
+  &.btn-warning
+    color: $light
+    background: $yellow
+
+  &.btn-danger
+    color: $light
+    background: $red
+
+
 
 .content
   padding: 1rem

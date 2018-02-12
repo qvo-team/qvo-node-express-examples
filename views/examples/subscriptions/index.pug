@@ -1,4 +1,20 @@
 extends ../layout
 
 block example-content
-  h1 Coming soon ... 😅
+
+  h1 Ingresa tus datos
+
+  p form here
+
+  h1 Elige tu plan
+  .plans
+    each plan in plans
+      .plan
+        .plan-content
+          h1.plan-price
+            | <span class="currency">#{plan.currency}</span> #{plan.price}<span class="interval">/mes</span>
+          p.plan-name= plan.name
+
+        form(method='POST' action='/examples/subscriptions/pay')
+          input(type='hidden' name='plan.id' value=plan.id)
+          button.btn.btn-primary(type='submit') Inscribirse

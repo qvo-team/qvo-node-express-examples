@@ -24,18 +24,39 @@ hr {
   border-bottom: 1px solid #e9ebed;
   margin: 1rem 0; }
 
-.btn-primary {
+button.btn {
   text-decoration: none;
-  color: #fff;
   border: none;
-  background: #3091c8;
+  border-radius: 6px;
+  font-weight: 700;
+  padding: .2rem 1.4rem;
+  font-size: 1rem;
+  line-height: 2.4rem; }
+  button.btn + .btn {
+    margin-left: 1rem; }
+
+a.btn {
+  text-decoration: none;
+  border: none;
   border-radius: 6px;
   font-weight: 700;
   padding: .6rem 1.4rem;
   font-size: 1rem;
   line-height: 2.4rem; }
-  .btn-primary + .btn-primary {
+  a.btn + .btn {
     margin-left: 1rem; }
+
+.btn.btn-primary {
+  color: #fff;
+  background: #3091c8; }
+
+.btn.btn-warning {
+  color: #fff;
+  background: #ffbb00; }
+
+.btn.btn-danger {
+  color: #fff;
+  background: #eb5354; }
 
 .content {
   padding: 1rem; }
@@ -346,5 +367,53 @@ pre {
   background: #f6f8fa;
   border-radius: 6px;
   padding: 1rem; }
+
+.plans {
+  z-index: 2;
+  width: 100%;
+  display: flex; }
+  .plans .plan {
+    text-align: center;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 260px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.08), 0 7px 14px 1px rgba(50, 50, 93, 0.1); }
+    .plans .plan + .plan {
+      margin-left: 1rem; }
+    .plans .plan .plan-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 180px; }
+    .plans .plan h1.plan-price {
+      font-size: 3rem;
+      margin: 0;
+      position: relative; }
+      .plans .plan h1.plan-price .currency {
+        font-weight: 300;
+        font-size: .9rem;
+        position: relative;
+        top: -20px;
+        left: 6px; }
+      .plans .plan h1.plan-price .interval {
+        font-size: .9rem;
+        font-weight: 300; }
+    .plans .plan p.plan-name {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.4rem; }
+    .plans .plan button {
+      width: 100%;
+      border-radius: 0; }
+  @media screen and (max-width: 768px) {
+    .plans {
+      flex-direction: column;
+      align-items: center; }
+      .plans .plan + .plan {
+        margin-left: 0;
+        margin-top: 1rem; } }
 
 /*# sourceMappingURL=style.css.map */

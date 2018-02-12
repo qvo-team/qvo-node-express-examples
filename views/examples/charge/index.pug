@@ -17,7 +17,7 @@ block example-content
 
       form(method='POST' action='/examples/charge/pay')
         input(type='hidden' name='productID' value=product.id)
-        button.btn-primary(type='submit') Pagar $#{product.price}
+        button.btn.btn-primary(type='submit') Pagar $#{product.price}
 
 block credits
   span
