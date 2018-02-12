@@ -22,30 +22,32 @@ block example-content
     const product = !{ JSON.stringify(product) },
       public_key = !{ JSON.stringify(public_key) };
 
-    // Render the component
+    // Render the button component
     qvo.button.render({
+      env:          'sandbox',
+      keys:         { sandbox: public_key },
+      amount:       product.price,
+      description:  product.name,
+      name:         'Tu Tienda',
+      image:        window.location.protocol + '//' + window.location.host + product.imgURL,
 
-      env: 'sandbox',
-      keys: {
-        sandbox: public_key,
-      },
-      amount: product.price,
-      description: product.name,
-      name: 'Tu Tienda',
-      image: window.location.protocol + '//' + window.location.host + product.imgURL,
-
-      onSuccess: function (response) {
-        fetch('/examples/checkout/register_transaction/' + response.id, { method: 'POST', body: 'json', headers: {} })
+      onSuccess: function(transaction) {
+        // We check and register the transaction on our backend
+        fetch('/examples/checkout/register_transaction/' + transaction.id, { method: 'POST' })
         .then(function (response) {
-          return response.json();
+          return response.ok ? response.json() : Promise.reject(response);
         })
-        .then(function (response) {
+        .then(function(response) {
           if(response.status == 'ok') {
             // Here you can redirect the user, display another message or whatever you want!
             window.alert('Pago Completado 😁!');
           } else {
             window.alert('Pago Fallido 😮, intenta nuevamente.');
           }
+        })
+        .catch(function(response) {
+          console.error(response);
+          window.alert('Existió un error en la verificación de la transacción');
         });
       }
     }, '#qvo-button-container');
