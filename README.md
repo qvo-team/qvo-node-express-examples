@@ -1,6 +1,6 @@
 # QVO Node.js (Express) Examples
 
-This repo contains an express app with examples of different functionalities from the [QVO API](https://docs.qvo.cl).
+This repo contains an express app with examples of features from the [QVO API](https://docs.qvo.cl).
 
 ## Requisites
 
@@ -10,8 +10,8 @@ This repo contains an express app with examples of different functionalities fro
 ## Install
 
 ```bash
-git clone this_repo
-cd this_repo
+git clone git@github.com:qvo-team/qvo-node-express-examples.git
+cd qvo-node-express-examples
 npm install
 ```
 
