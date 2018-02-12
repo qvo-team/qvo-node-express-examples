@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Camiseta Clásica",
+    "price": 79990,
+    "rating": 5,
+    "offer": true,
+    "imgURL": "/images/basketball-jersey.png",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cumque asperiores illum, dolores totam nostrum eum ducimus facilis, fuga possimus, temporibus ipsa quia nobis consequuntur voluptas libero? Amet, nam magnam."
+  },
+  {
+    "id": 2,
+    "name": "Zapatillas Clásicas",
+    "price": 39900,
+    "rating": 4,
+    "offer": false,
+    "imgURL": "/images/shoe.png",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cumque asperiores illum, dolores totam nostrum eum ducimus facilis, fuga possimus, temporibus ipsa quia nobis consequuntur voluptas libero? Amet, nam magnam."
+  }
+]

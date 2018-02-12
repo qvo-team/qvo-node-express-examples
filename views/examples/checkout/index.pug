@@ -1,4 +1,57 @@
 extends ../layout
 
 block example-content
-  h1 Coming soon ... 😅
+  .product-display
+    .product-img
+      img(src=product.imgURL)
+    .product-information
+      h2.product-name
+        = product.name
+      .product-rating
+        - for (var i = 0; i < product.rating; i++)
+          | ★
+      .product-price(class=product.offer ? 'offer' : '')
+        = '$' + product.price
+      p.product-description
+        = product.description
+
+      #qvo-button-container
+
+  script(src="https://cdn.qvo.cl/checkout.min.js")
+  script.
+    const product = !{ JSON.stringify(product) },
+      public_key = !{ JSON.stringify(public_key) };
+
+    // Render the component
+    qvo.button.render({
+
+      env: 'sandbox',
+      keys: {
+        sandbox: public_key,
+      },
+      amount: product.price,
+      description: product.name,
+      name: 'Tu Tienda',
+      image: window.location.protocol + '//' + window.location.host + product.imgURL,
+
+      onSuccess: function (response) {
+        fetch('/examples/checkout/register_transaction/' + response.id, { method: 'POST', body: 'json', headers: {} })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          if(response.status == 'ok') {
+            // Here you can redirect the user, display another message or whatever you want!
+            window.alert('Pago Completado 😁!');
+          } else {
+            window.alert('Pago Fallido 😮, intenta nuevamente.');
+          }
+        });
+      }
+    }, '#qvo-button-container');
+
+block credits
+  span
+   | Icons made by <a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+

@@ -6,15 +6,21 @@ block example-content
   p
     | Tu transacción se ha realizado sin problemas. Estamos procesando tu orden. Gracias por confiar en nosotros 🙂.
 
-  h3 Detalles de la transacción
+  h2 Detalles de la transacción
 
-  ul
-    li ID de la transacción: #{ transaction.id }
-    li Fecha de la transacción: #{ new Date(transaction.created_at).toLocaleString() }
-    li Monto: $#{ transaction.payment.amount }
-    li Descripción: #{ transaction.description }
-    li Tipo de pago: #{ transaction.payment.payment_type == 'credit' ? 'Crédito': 'Débito' }
-    li Número de Cuotas: #{ transaction.payment.installments }
+  strong ID de la transacción:
+  p= transaction.id
+  strong Fecha de la transacción:
+  p= new Date(transaction.created_at).toLocaleString()
+
+  strong Monto:
+  p $#{ transaction.payment.amount }
+  strong Descripción:
+  p= transaction.description
+  strong Tipo de pago:
+  p= transaction.payment.payment_type == 'credit' ? 'Crédito': 'Débito'
+  strong Número de Cuotas:
+  p= transaction.payment.installments
 
   a.btn-primary(href="/")
     | Volver al Inicio

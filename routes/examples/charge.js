@@ -1,32 +1,10 @@
-const express = require('express'),
+const express = require("express"),
   router = express.Router(),
-  url = require('url'),
+  url = require("url"),
   fetch = require("node-fetch-json"),
-  Prism = require('prismjs'),
+  Prism = require("prismjs"),
+  products = require("../../stubs/products.json");
   QVO_API_URL = 'https://playground.qvo.cl'; //Change it to https://api.qvo.cl on production
-
-// Product example stub
-const products = [
-  {
-    id: 1,
-    name: "Camiseta",
-    price: 79990,
-    rating: 5,
-    offer: true,
-    imgURL: "/images/basketball-jersey.png",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cumque asperiores illum, dolores totam nostrum eum ducimus facilis, fuga possimus, temporibus ipsa quia nobis consequuntur voluptas libero? Amet, nam magnam."
-  }, {
-    id: 2,
-    name: "Zapatillas",
-    price: 39900,
-    rating: 4,
-    offer: false,
-    imgURL: "/images/shoe.png",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium cumque asperiores illum, dolores totam nostrum eum ducimus facilis, fuga possimus, temporibus ipsa quia nobis consequuntur voluptas libero? Amet, nam magnam."
-  }
-];
 
 // GET /examples/charge
 router.get('/', (req, res, next) => {
