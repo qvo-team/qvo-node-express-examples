@@ -2,6 +2,10 @@ extends ../layout
 
 block example-content
 
+  if error
+    .alert.alert-danger
+      | <strong>Error:</strong> #{ JSON.stringify(error.message) }
+
   form(method='POST' action='/examples/subscriptions/init_card_inscription')
     h1 1. Ingresa tus datos:
 
@@ -18,7 +22,7 @@ block example-content
     .form-group
       label.desc Teléfono:
       .form-control
-        input(name='phone' type='tel' value='' placeholder='Ingresa tu teléfono (Opcional)' required)
+        input(name='phone' type='tel' value='' placeholder='Ingresa tu teléfono (Opcional)')
 
     h1 2. Elige tu plan:
 

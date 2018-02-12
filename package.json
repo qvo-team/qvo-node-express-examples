@@ -21,7 +21,7 @@
     "dotenv": "^5.0.0",
     "express": "~4.15.5",
     "morgan": "~1.9.0",
-    "node-fetch-json": "0.0.3",
+    "node-fetch": "^2.0.0",
     "node-sass-middleware": "0.9.8",
     "prismjs": "^1.11.0",
     "pug": "2.0.0-beta11",

@@ -70,6 +70,13 @@ a.btn {
   .credits a {
     color: #cccccc; }
 
+.alert {
+  padding: 1rem;
+  border-radius: 6px; }
+  .alert.alert-danger {
+    color: #fff;
+    background: #eb5354; }
+
 nav {
   background: #3091c8;
   color: #fff;

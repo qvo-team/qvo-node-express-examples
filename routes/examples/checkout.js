@@ -1,9 +1,10 @@
 const express = require("express"),
   router = express.Router(),
   url = require("url"),
-  fetch = require("node-fetch-json"),
+  fetch = require("node-fetch"),
   Prism = require("prismjs"),
-  products = require("../../stubs/products.json");
+  products = require("../../stubs/products.json"),
+  checkResponse = require("../../lib/utils").checkResponse,
   QVO_API_URL = 'https://playground.qvo.cl'; //Change it to https://api.qvo.cl on production
 
 // GET /examples/checkout
@@ -20,9 +21,11 @@ router.post('/register_transaction/:transactionID', (req, res, next) => {
 
   fetch(`${QVO_API_URL}/transactions/${req.params.transactionID}`, {
     headers: {
-      Authorization: `Bearer ${process.env.QVO_API_KEY}`
+      Authorization: `Bearer ${process.env.QVO_API_KEY}`,
+      'Content-Type': 'application/json',
     }
   })
+  .then(response => checkResponse(response))
   .then(response => {
     console.info("QVO API Response:", response);
 

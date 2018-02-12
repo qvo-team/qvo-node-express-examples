@@ -1,16 +1,17 @@
 const express = require("express"),
   router = express.Router(),
   url = require("url"),
-  fetch = require("node-fetch-json"),
+  fetch = require("node-fetch"),
   Prism = require("prismjs"),
-  products = require("../../stubs/products.json");
+  products = require("../../stubs/products.json"),
+  checkResponse = require("../../lib/utils").checkResponse,
   QVO_API_URL = 'https://playground.qvo.cl'; //Change it to https://api.qvo.cl on production
 
 // GET /examples/charge
 router.get('/', (req, res, next) => {
   res.render("examples/charge/index", {
     title: "Cobrar a tarjeta",
-    product: products[0] // Try with 0 or 1
+    product: products[0]
   });
 });
 
@@ -24,21 +25,29 @@ router.post("/pay", (req, res, next) => {
   fetch(`${QVO_API_URL}/webpay_plus/charge`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.QVO_API_KEY}`
+      Authorization: `Bearer ${process.env.QVO_API_KEY}`,
+      'Content-Type': 'application/json',
     },
-    body: {
+    body: JSON.stringify({
       amount: product.price,
       return_url: returnURL,
       description: `Orden Cód. ${generateOrder()} - ${product.name}`
-    }
+    })
   })
+  .then(response => checkResponse(response))
   .then(response => {
     console.info("QVO API Response:", response);
 
     res.redirect(response.redirect_url);
   })
   .catch(response => {
-    console.error(response);
+    console.error('Error:', response);
+
+    res.render("examples/charge/index", {
+      title: "Cobrar a tarjeta",
+      product: products[0],
+      error: response.error
+    });
   });
 });
 
@@ -48,21 +57,23 @@ router.get('/return', (req, res, next) => {
 
   fetch(`${QVO_API_URL}/transactions/${transactionID}`, {
     headers: {
-      Authorization: `Bearer ${process.env.QVO_API_KEY}`
+      Authorization: `Bearer ${process.env.QVO_API_KEY}`,
+      'Content-Type': 'application/json',
     }
   })
-  .then(response => {
-    console.info("QVO API Response:", response);
+  .then(response => checkResponse(response))
+  .then(transaction => {
+    console.info("QVO API Response:", transaction);
 
-    if(response.status == 'successful') {
+    if(transaction.status == 'successful') {
       res.render("examples/charge/success", {
         title: "Éxito - Cobrar a tarjeta",
-        transaction: response
+        transaction: transaction
       });
     } else {
       res.render("examples/charge/failure", {
         title: "Fracaso - Cobrar a tarjeta",
-        transaction: response
+        transaction: transaction
       });
     }
   })
