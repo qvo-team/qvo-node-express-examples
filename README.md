@@ -9,15 +9,17 @@
 </h1>
 
 
-Este repositorio contiene una APP en Express con ejemplos de funcionalidades de la [API QVO](https://docs.qvo.cl).
+Este repositorio contiene una aplicación Node.js utilizando Express con ejemplos de funcionalidades de la [API QVO](https://docs.qvo.cl).
 
-Los ejemplos incluidos en esta APP son:
+Los ejemplos incluidos son:
 
 - **Cobrar a tarjeta**: Se muestra de manera simple la funcionalidad de un cobro puntual a tarjetas de débito o crédito mediante Webpay Plus.
 - **Planes y suscripciones**: Se muestra de manera simple la funcionalidad de planes y suscripciones mediante un formulario selección de planes. Se asume que el cliente no existe y se registra en la plataforma eligiendo un plan. Se crearon previamente los planes en el sistema.
 - **Botón de pago y Checkout**: Se muestra de manera simple la funcionalidad del botón de pago para un producto puntual.
 
-La APP viene previamente configurada con credenciales para realizar pruebas de inmediato, pero puedes cambiarlas por tus propias credenciales en el archivo `.env` ubicado en `/`.
+La aplicación viene previamente configurada con credenciales para realizar pruebas de inmediato, pero puedes cambiarlas por tus propias credenciales en el archivo `.env`.
+
+> **OJO 👀:** Si utilizas las credenciales de tu cuenta, preocúpate que los `qvoPlanID`s de los planes en el stub de planes (`stubs/plans.json`) coincidan con tus los ids de tus planes creados en tu cuenta.
 
 Para realizar pagos de prueba utiliza las credenciales provistas en [nuestra documentación](https://docs.qvo.cl/#pruebas-y-sandbox).
 
