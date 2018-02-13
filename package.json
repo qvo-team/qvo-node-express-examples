@@ -1,5 +1,5 @@
 {
-  "name": "qvo-express-examples",
+  "name": "qvo-node-express-examples",
   "author": {
     "name": "QVO Team",
     "url": "https://qvo.cl",
@@ -12,7 +12,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start:dev": "nodemon ./bin/www"
+    "start:dev": "DEBUG=qvo-node-express-examples:* & nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
